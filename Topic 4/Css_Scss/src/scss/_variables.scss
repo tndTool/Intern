@@ -1,0 +1,24 @@
+$main-bg: #fff;
+$main-color: #4267b2;
+
+$table-border-color: #ddd;
+$table-header-bg-color: #f2f2f2;
+$table-row-bg-color: #f2f2f2;
+$table-row-hover-bg-color: #ddd;
+
+$colors: (
+  "blue": #87adb5,
+  "orange": #fbb96b,
+  "pink": #fe7e73,
+  "white": #f3f3f3,
+  "black": #212121,
+  "darkcyan": #008b8b,
+  "grey": #646e77,
+  "red": #be2f37,
+  "brown": #7f7463,
+  "be": #d8cec3,
+  "main": $main-color,
+);
+
+$mobile-width: 600px;
+$tablet-width: 1024px;

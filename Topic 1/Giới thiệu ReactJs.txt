@@ -1,0 +1,28 @@
+- ReactJS is a simple, feature rich, component based JavaScript UI library. 
+- It can be used to develop small applications as well as big, complex applications. 
+- ReactJS provides minimal and solid feature set to kick-start a web application. 
+- React community compliments React library by providing large set of ready-made components to develop web application in a record time.
+- React community also provides advanced concept like state management, routing, etc., on top of the React library.
+
+* React versions: React follows the Sematic Versioning (semver) principle.
+
+* Features:
+- Solid base architecture
+- Extensible architecture
+- Component based library
+- JSX based design architecture
+- Declarative UI library
+
+* Benefits:
+- Easy to learn
+- Easy to adept in modern as well as legacy application
+- Faster way to code a functionality
+- Availability of large number of ready-made component
+- Large and active community
+
+* Applications:
+- Facebook, popular social media application
+- Instagram, popular photo sharing application
+- Netflix, popular media streaming application
+- Code Academy, popular online training application
+- Reddit, popular content sharing application
