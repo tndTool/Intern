@@ -1,0 +1,34 @@
+1. Tạo và sử dụng các hooks cơ bản: useState & useEffect.
+- useState: để quản lý state trong các component của ứng dụng React. Hook này cho phép bạn sử dụng state và cập nhật state trong các functional component của ứng dụng React.
+- Các đặc điểm của useState:
+
+	+ useState là một function được import từ module React.
+	+ useState nhận đối số đầu vào là giá trị khởi tạo cho state, trả về một mảng gồm giá trị hiện tại của state và một function để cập nhật giá trị của state đó.
+	+ Khi state thay đổi, React sẽ tự động gọi lại hàm render để cập nhật giao diện hiển thị trên màn hình.
+
+- useEffect: để thực hiện các tác vụ không đồng bộ và cập nhật state sau khi component đã được render. Hook này cho phép bạn gọi các hàm không đồng bộ, sử dụng các side effect và cập nhật state sau khi component đã được render.
+- Các đặc điểm của useEffect:
+
+	+ useEffect là một function được import từ module React.
+	+ useEffect nhận đối số đầu vào là một hàm, được gọi là hàm effect. Hàm effect này sẽ được gọi sau khi component được render.
+	+ useEffect cũng có thể nhận đối số thứ hai là một mảng dependency, được sử dụng để định nghĩa các biến được giám sát và khi nào hàm effect sẽ được gọi lại.
+	+ Nếu không có đối số thứ hai, useEffect sẽ được gọi lại sau mỗi lần component được render.
+	+ Nếu đối số thứ hai là một mảng rỗng [], useEffect sẽ chỉ được gọi lại khi component được render lần đầu tiên.
+	+ Nếu đối số thứ hai là một mảng các biến, useEffect sẽ được gọi lại khi giá trị của các biến trong mảng thay đổi.
+
+2. Hiểu và nắm rõ useMemo và useCallback.
+- useMemo: để tối ưu hoá hiệu suất của ứng dụng bằng cách lưu trữ kết quả của một hàm và sử dụng lại kết quả đó khi các dependency không thay đổi.
+- Các đặc điểm của useMemo:
+
+	+ useMemo là một function được import từ module React.
+	+ useMemo nhận đối số đầu vào là một hàm và một mảng dependency.
+	+ Hàm được truyền vào useMemo sẽ được thực thi và kết quả được lưu trữ lại.
+	+ useMemo sẽ trả về kết quả được lưu trữ lại nếu giá trị của các dependency trong mảng không thay đổi. Nếu giá trị của các dependency thay đổi, hàm được truyền vào useMemo sẽ được thực 	thi lại để tạo ra kết quả mới.
+
+- useCallback: để tối ưu hoá hiệu suất của ứng dụng bằng cách memoizing (lưu trữ) một hàm và chỉ thực thi lại hàm đó khi các dependency thay đổi.
+- Các đặc điểm của useCallback:
+
+	+ useCallback là một function được import từ module React.
+	+ useCallback nhận đối số đầu vào là một hàm và một mảng dependency.
+	+ Hàm được truyền vào useCallback sẽ được memoized và chỉ thực thi lại khi giá trị của các dependency trong mảng thay đổi.
+	+ useCallback sẽ trả về một hàm memoized.
