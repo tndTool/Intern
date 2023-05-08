@@ -1,8 +1,13 @@
 1. JSX:
 JSX là một cú pháp mở rộng của JavaScript được sử dụng để tạo ra các thành phần giao diện người dùng (UI components) trong các ứng dụng React
 
+
 2. Component:
 Trong ReactJS, một component là một khối xây dựng giao diện người dùng (UI) độc lập, nhỏ gọn và có thể tái sử dụng. Nó bao gồm các thành phần giao diện người dùng, logic xử lý và tương tác với người dùng.
+
+-  Three concepts: + Properties - Enables the component to receive input.
+                   + Events - Enable the component to manage DOM events and end-user interaction.
+                   + State - Enable the component to stay stateful. Stateful component updates its UI with respect to its state.
 
 3. Styling:
 - CSS stylesheet: import './styles.css';

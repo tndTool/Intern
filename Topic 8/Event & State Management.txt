@@ -1,0 +1,45 @@
+1. Event và state trong React:
+- Sự kiện (Event) trong React là các hành động được thực hiện bởi người dùng trên giao diện người dùng, bằng cách sử dụng các phương thức được cung cấp bởi React như onClick, onChange, onSubmit, vv.
+- Trạng thái (State) trong React là các giá trị được lưu trữ và quản lý bởi các thành phần. Trạng thái có thể thay đổi trong quá trình chạy của ứng dụng, và khi trạng thái thay đổi, React sẽ tự động cập nhật lại giao diện người dùng để phản ánh các thay đổi này. 
+
+
+2. Component lifecycle:
+- Chu kỳ sống này bao gồm các phương thức được gọi ở các giai đoạn khác nhau khi component được tạo, cập nhật hoặc xóa khỏi DOM. Các phương thức này cho phép bạn thực hiện các hành động khác nhau tại các thời điểm khác nhau của chu kỳ sống, như khởi tạo state, gọi API, thực hiện các thao tác với DOM, và nhiều hơn nữa.
+
+- Các phương thức trong chu kỳ sống của một component React có thể được phân loại thành 3 loại:
+
+		+ Mounting: các phương thức được gọi khi component được tạo và thêm vào DOM.
+		constructor()
+		static getDerivedStateFromProps()
+		render()
+		componentDidMount()
+
+		+ Updating: các phương thức được gọi khi component được cập nhật.
+		static getDerivedStateFromProps()
+		shouldComponentUpdate()
+		render()
+		getSnapshotBeforeUpdate()
+		componentDidUpdate()
+
+		+ Unmounting: các phương thức được gọi khi component bị xóa khỏi DOM.
+		componentWillUnmount()
+
+		+ Ngoài ra còn một số phương thức khác như:
+		static getDerivedStateFromError()
+		componentDidCatch()
+
+3. Statefull & Stateless component - Tạo ra statefull component:
+- Stateful component là một component có khả năng lưu trữ và quản lý trạng thái (state) của nó. Khi trạng thái thay đổi, component sẽ render lại để hiển thị các thay đổi đó. Stateful component được tạo ra bằng cách kế thừa từ lớp React.Component hoặc React.PureComponent và sử dụng các phương thức của nó để quản lý trạng thái của component.
+
+- Stateless component là một component không có khả năng lưu trữ trạng thái (state). Thay vào đó, chúng chỉ nhận vào một số props và render ra các giao diện tương ứng. Stateless component được tạo ra bằng cách sử dụng hàm. Chúng không có khả năng thay đổi trạng thái của nó và không sử dụng các phương thức của React.Component hoặc React.PureComponent.
+
+
+4. State management using React Hooks:
+- It enables React functional component to have its own state and life-cycle
+- React Hooks are special functions provided by React to handle a specific functionality inside a React functional component.
+
+5. Children props of Component:
+- Trong React, một component có thể chứa các component khác bên trong nó. Các component này được gọi là "children" của component cha và được truyền vào như là props của component cha.
+
+6. Layout in component:
+Layout trong React là cách bạn tổ chức các phần tử trên trang web của bạn. Nó bao gồm việc sắp xếp các component và các phần tử HTML khác để tạo nên giao diện người dùng.
