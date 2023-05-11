@@ -1,0 +1,11 @@
+1. Hiểu và biết cách hoạt động của Rest API.
+- REST API là một kiến trúc phần mềm cho phép các ứng dụng web truy cập và quản lý các tài nguyên trên máy chủ web bằng các phương thức HTTP phổ biến như GET, POST, PUT và DELETE. REST API sử dụng các URL để định danh các tài nguyên và đảm bảo tính toàn vẹn của dữ liệu truyền tải bằng cách sử dụng các định dạng dữ liệu chuẩn như JSON hoặc XML.
+
+- Các phương thức HTTP phổ biến được sử dụng trong REST API bao gồm:
+
+	+ GET: Lấy dữ liệu từ tài nguyên trên máy chủ web.
+	+ POST: Tạo mới một tài nguyên trên máy chủ web.
+	+ PUT: Cập nhật một tài nguyên trên máy chủ web.
+	+ DELETE: Xóa một tài nguyên trên máy chủ web.
+
+2. GraphQL: https://graphql.org/ 
