@@ -1,0 +1,20 @@
+SWR (stale-while-revalidate) là một thư viện được sử dụng trong các ứng dụng React để quản lý các truy vấn HTTP và cung cấp dữ liệu cho các component.
+
+SWR có thể giúp tăng tốc độ tải trang và cải thiện trải nghiệm người dùng bằng cách tự động lưu trữ dữ liệu được truy vấn gần đây và tái sử dụng nó khi có thể. Khi một component yêu cầu dữ liệu mới từ server, SWR sẽ trả về dữ liệu lưu trữ trong bộ nhớ đệm (nếu có) và cập nhật nó sau một khoảng thời gian xác định để đảm bảo rằng dữ liệu luôn được cập nhật và chính xác.
+
+
+Other Features Of SWR:
+1. Focus Revalidation:
+Đây là một feature rất hữu dụng nó cho phép cập nhật lại dữ liệu một cách chính xác khi bạn focus vào một trang hoặc chuyển qua lại giữa các tab.
+
+2. Refetch on Interval:
+Feature này cho phép ta có thể fetch data lại sau một khoảng thời gian nhất định. Nó hữu ích trong việc nếu màn hình đó có dữ liệu được thay đổi thường xuyên do nhiều người dùng, nhiều thiết bị hoặc nhiều tab.
+
+3. Revalidate on Reconnect:
+Khi bạn đang dùng mạng nhưng bị mất kết nối mạng hoặc khi mở khóa máy tính nhưng internet chưa được kết nối ngay lúc đó thì SWR đã cung cấp cho chúng ta một giải pháp cho phép dữ liệu sẽ được cập nhật lại khi mạng được connect thành công.
+
+4. Dependent Fetching:
+SWR cho phép bạn tìm dữ liệu phụ thuộc vào một dữ liệu khác. Giống như là bạn get id của một user sau đó dựa vào userId ấy để tìm ra các project tương ứng của user.
+
+5. Dedupe Requests:
+Feature này cho phép ta có thể loại bỏ những request trong một khoảng thời gian nhất định với cùng 1 api.

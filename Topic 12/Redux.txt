@@ -1,0 +1,18 @@
+Kiến thức cơ bản về Redux:
+1. Understanding Redux workflow
+
+2. Các thành phần: Store, Action, Reducer là gì?
+
+3. Cách settup Reducer và Store
+
+4. Connecting React to Redux
+
+5. Connecting the Store to React
+
+6. Dispatching Actions
+
+7. Switch-Case in Reducer: Cách quản lý Reducer khi phải handle nhiều actions.
+
+8. Cách kết hợp nhiều Reducer
+
+9 Understanding State Types, Action Types

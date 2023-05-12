@@ -1,0 +1,8 @@
+1. Nắm được kiến thức về React Router
+React Router là một thư viện phổ biến để quản lý định tuyến phía khách hàng trong các ứng dụng React. Nó cho phép các nhà phát triển tạo các định tuyến mô tả và cung cấp điều hướng giữa các phần khác nhau của một ứng dụng mà không cần phải làm mới trang. React Router sử dụng một kết hợp giữa các thành phần và thuộc tính để xác định các định tuyến và hành vi của chúng.
+
+2. Nesting Routing
+Nesting routing (định tuyến lồng nhau) là việc định nghĩa các định tuyến trong các định tuyến khác. Điều này hữu ích khi bạn có các ứng dụng phức tạp với nhiều cấp độ điều hướng. Bằng cách lồng nhau các định tuyến, bạn có thể cung cấp các cấp độ khác nhau cho hệ thống định tuyến của ứng dụng của mình, làm cho nó dễ quản lý và bảo trì hơn.
+
+3. Navigation
+Trong React Router, điều hướng có thể được thực hiện bằng cách sử dụng các thành phần Link và NavLink. Thành phần Link được sử dụng để điều hướng đến một định tuyến cụ thể trong ứng dụng, trong khi thành phần NavLink được sử dụng để cung cấp kiểu dáng cho liên kết đang hoạt động.
