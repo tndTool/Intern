@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import useSWR from "swr";
 import axios from "axios";
 
@@ -14,36 +14,52 @@ const fetcher = (url: string) =>
 const TodoList: React.FC = () => {
   const { data, error, mutate } = useSWR<Todo[]>(
     "http://localhost:3006/todo",
-    fetcher
+    fetcher,
+    { revalidateOnFocus: false }
   );
 
-  const [newTodoList, setNewTodoList] = useState("");
+  const [newTodoList, setNewTodoList] = useState<string>("");
+  const [channel, setChannel] = useState<BroadcastChannel | null>(null);
 
-  const addTodoList = () => {
+  useEffect(() => {
+    if (typeof BroadcastChannel !== "undefined") {
+      const newChannel = new BroadcastChannel("todoChannel");
+      newChannel.onmessage = () => {
+        mutate();
+      };
+      setChannel(newChannel);
+    }
+  }, [mutate]);
+
+  const addTodoList = useCallback(() => {
     axios
       .post<Todo>("http://localhost:3006/todo", {
         title: newTodoList,
         completed: false,
       })
       .then((res) => {
-        const newTodoItemList = [...(data! ?? []), res.data];
+        const newTodoItemList = [...(data ?? []), res.data];
         mutate(newTodoItemList, false);
         setNewTodoList("");
+        if (channel) {
+          channel.postMessage("update");
+        }
       });
-  };
+  }, [data, mutate, newTodoList, channel]);
 
   if (error) return <h1>{error.message}</h1>;
 
   return (
-    <div>
-      <div>
+    <>
+      <label>
+        Add Todo List:
         <input
           type="text"
           value={newTodoList}
           onChange={(e) => setNewTodoList(e.target.value)}
         />
-        <button onClick={addTodoList}>Add Todo List</button>
-      </div>
+        <button onClick={addTodoList}>Add</button>
+      </label>
       {data ? (
         data.map((todo) => {
           return <h1 key={todo.id}>{todo.title}</h1>;
@@ -51,7 +67,7 @@ const TodoList: React.FC = () => {
       ) : (
         <h1>Loading</h1>
       )}
-    </div>
+    </>
   );
 };
 
