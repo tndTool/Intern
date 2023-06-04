@@ -1,4 +1,4 @@
-1. Event và state trong React:
+.1. Event và state trong React:
 - Sự kiện (Event) trong React là các hành động được thực hiện bởi người dùng trên giao diện người dùng, bằng cách sử dụng các phương thức được cung cấp bởi React như onClick, onChange, onSubmit, vv.
 - Trạng thái (State) trong React là các giá trị được lưu trữ và quản lý bởi các thành phần. Trạng thái có thể thay đổi trong quá trình chạy của ứng dụng, và khi trạng thái thay đổi, React sẽ tự động cập nhật lại giao diện người dùng để phản ánh các thay đổi này. 
 

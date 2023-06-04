@@ -1,25 +1,54 @@
-function ExpenseEntryItemList(props) {
-  const lists = props.items.map((item) => (
-    <tr key={item.id}>
-      <td>{item.name}</td>
-      <td>{item.amount}</td>
-      <td>{new Date(item.spendDate).toDateString()}</td>
-      <td>{item.category}</td>
-    </tr>
-  ));
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+
+function ExpenseEntryItemList() {
+  const [temperatureData, setTemperatureData] = useState([]);
+  const [humidityData, setHumidityData] = useState([]);
+  const [lightData, setLightData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/data");
+        setTemperatureData(response.data.temperature);
+        setHumidityData(response.data.humidity);
+        setLightData(response.data.light);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    fetchData();
+  }, []);
 
   return (
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th>Item</th>
-          <th>Amount</th>
-          <th>Date</th>
-          <th>Category</th>
-        </tr>
-      </thead>
-      <tbody>{lists}</tbody>
-    </table>
+    <div>
+      <h2>Temperature Data</h2>
+      <ul>
+        {temperatureData.map((data) => (
+          <li key={data._id}>
+            Timestamp: {data.timestamp}, Value: {data.value}
+          </li>
+        ))}
+      </ul>
+
+      <h2>Humidity Data</h2>
+      <ul>
+        {humidityData.map((data) => (
+          <li key={data._id}>
+            Timestamp: {data.timestamp}, Value: {data.value}
+          </li>
+        ))}
+      </ul>
+
+      <h2>Light Data</h2>
+      <ul>
+        {lightData.map((data) => (
+          <li key={data._id}>
+            Timestamp: {data.timestamp}, Value: {data.value}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
