@@ -18,6 +18,7 @@ const Header: React.FC<HeaderProps> = () => {
   const [isConnected, setIsConnected] = useState(false);
   const [isSignedOut, setIsSignedOut] = useState(false);
 
+  // Test
   useEffect(() => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
