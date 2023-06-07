@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
+import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 import { AiFillMessage } from "react-icons/ai";
 import { FaPinterest, FaSearch } from "react-icons/fa";
 import { IoIosNotifications, IoMdExit } from "react-icons/io";
 
+import { Web3Provider } from "@ethersproject/providers";
+
 interface HeaderProps {}
 
 const Header: React.FC<HeaderProps> = () => {
+  const location = useLocation();
   const navigate = useNavigate();
   const [isConnected, setIsConnected] = useState(false);
   const [isSignedOut, setIsSignedOut] = useState(false);
@@ -18,11 +22,10 @@ const Header: React.FC<HeaderProps> = () => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
     if (isLoggedIn === "true") {
       setIsConnected(true);
-    }
-    if (isSignedOut) {
+    } else {
       setIsConnected(false);
     }
-  }, [isSignedOut]);
+  }, [location]);
 
   useEffect(() => {
     if (isSignedOut) {
@@ -32,7 +35,8 @@ const Header: React.FC<HeaderProps> = () => {
 
   const connectWallet = async () => {
     try {
-      await window.ethereum.request({ method: "eth_requestAccounts" });
+      const provider = new Web3Provider(window.ethereum);
+      await provider.send("wallet_requestPermissions", [{ eth_accounts: {} }]);
       setIsConnected(true);
       localStorage.setItem("isLoggedIn", "true");
     } catch (error) {

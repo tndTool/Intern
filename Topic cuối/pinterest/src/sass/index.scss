@@ -123,6 +123,12 @@
   outline: none;
 }
 
+.hover-opacity-80 {
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 @media (max-width: 540px) {
   .sm-display-none {
     display: none;
