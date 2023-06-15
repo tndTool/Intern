@@ -1,5 +1,5 @@
 import LazyLoad from "react-lazy-load";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, Suspense } from "react";
 import {
   getNFTOwner,
   getAllNFTTokenIds,
@@ -110,11 +110,13 @@ const Profile: React.FC<ProfileProps> = () => {
             <div key={index} className="d-flex">
               <div className="cursor-zoom-in border-box mb-3">
                 <LazyLoad>
-                  <img
-                    className="d-flex h-100 w-100 border-radius-1 object-fit-cover hover-opacity-80"
-                    src={url}
-                    alt={`NFT ${index}`}
-                  />
+                  <Suspense fallback={<Loading isLoading={true} />}>
+                    <img
+                      className="d-flex h-100 w-100 border-radius-1 object-fit-cover hover-opacity-80"
+                      src={url}
+                      alt={`NFT ${index}`}
+                    />
+                  </Suspense>
                 </LazyLoad>
               </div>
             </div>

@@ -15,23 +15,20 @@ interface ImageData {
 }
 
 const Pin: React.FC<PinProps> = ({ tokenId }) => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [imageData, setImageData] = useState<ImageData | null>(null);
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    setIsLoading(true);
     getNFTImageUrlMetadata(tokenId)
       .then((image) => {
         setImageData({
           tokenId: tokenId,
           image: image,
         });
-        setIsLoading(false);
       })
       .catch((error) => {
         console.error(error);
-        setIsLoading(false);
       });
   }, [tokenId]);
 
@@ -49,21 +46,28 @@ const Pin: React.FC<PinProps> = ({ tokenId }) => {
   };
 
   if (!imageData) {
-    return <Loading isLoading={isLoading} />;
+    return null;
   }
 
   return (
     <>
-      <Loading isLoading={isLoading} />
       <div className="d-flex">
         <div className="cursor-zoom-in border-box mb-3" onClick={openModal}>
           <LazyLoad>
             <Suspense fallback={<Loading isLoading={true} />}>
-              <img
-                className="d-flex h-100 w-100 border-radius-1 object-fit-cover hover-opacity-80"
-                src={imageUrl}
-                alt={`Galverse art ${tokenId}`}
-              />
+              <div className="position-relative">
+                <img
+                  className={`d-flex h-100 w-100 border-radius-1 object-fit-cover hover-opacity-80 ${
+                    isLoading ? "d-none" : ""
+                  }`}
+                  src={imageUrl}
+                  alt={`Galverse art ${tokenId}`}
+                  onLoad={() => setIsLoading(false)}
+                />
+                <div className="position-absolute top-0 right-0 mx-3 bg-danger text-white p-1">
+                  {tokenId}
+                </div>
+              </div>
             </Suspense>
           </LazyLoad>
         </div>

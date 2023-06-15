@@ -4,7 +4,7 @@ import { contractABI } from "./contractABI";
 import { contractAddress } from "./contractAddress";
 
 const provider = new ethers.providers.Web3Provider((window as any).ethereum);
-const signer = provider.getSigner();
+const signer = provider.getSigner("0x0000000000000000000000000000000000000000");
 const contract = new ethers.Contract(contractAddress, contractABI, signer);
 
 export const getContractName = async () => {
@@ -64,4 +64,15 @@ export const getNFTImageUrlMetadata = async (tokenId: number) => {
     .request(config)
     .then((response) => response.data.image)
     .catch((error) => console.log(error));
+};
+
+export const mintNFT = async (address: string) => {
+  try {
+    const signer = provider.getSigner();
+    const mintNft = await contract.connect(signer).safeMint(address);
+    const receipt = await provider.waitForTransaction(mintNft.hash);
+    return receipt;
+  } catch (err) {
+    alert("This account cannot mint, pls change the account!");
+  }
 };

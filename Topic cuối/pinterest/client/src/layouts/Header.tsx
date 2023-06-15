@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { NavDropdown } from "react-bootstrap";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 
 import { AiFillMessage } from "react-icons/ai";
 import { FaPinterest, FaSearch } from "react-icons/fa";
@@ -69,11 +68,11 @@ const Header: React.FC<HeaderProps> = () => {
 
   return (
     <div className="d-flex align-items-center p-3 text-dark bg-light">
-      <div className="mx-3">
-        <Link to="/" className="text-decoration-none">
+      <Link to="/" className="text-decoration-none">
+        <div className="mx-3">
           <FaPinterest className="text-primary fs-1 pointer cursor-pointer h-2  circle-hover" />
-        </Link>
-      </div>
+        </div>
+      </Link>
 
       <Link to="/" className="text-decoration-none md-display-none mx-1">
         <button className="d-flex h-3 w-6 align-items-center justify-content-center border-radius-2 bg-dark">
@@ -81,14 +80,15 @@ const Header: React.FC<HeaderProps> = () => {
         </button>
       </Link>
 
-      <NavDropdown title="Create" id="basic-nav-dropdown">
-        <NavDropdown.Item href="#">Create idea pin</NavDropdown.Item>
-        <NavDropdown.Item href="#">Create pin</NavDropdown.Item>
-      </NavDropdown>
+      <Link to="/create" style={{ textDecoration: "none" }}>
+        <NavDropdown title="Create" id="basic-nav-dropdown">
+          <div className="text-dark mx-2">Create pin</div>
+        </NavDropdown>
+      </Link>
 
       <div className="flex-075">
         <form className="d-flex flex-1 px-1 border-secondary border-radius-4">
-          <div className="d-flex align-items-center h-3 w-100 border-radius-4 ml-1 border-none bg-light px-1 cursor-pointer ">
+          <div className="d-flex align-items-center h-3 w-100 border-radius-4 ml-1 border-none bg-light px-1 cursor-pointer">
             <FaSearch className="m-2" />
             <input
               className="w-100 border-none bg-light h-100 border-radius-4 outline-none"
